@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Bar Chart</title>
+</head>
+<body>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.bar-chart {
+    display: grid;
+    grid-template-columns: 1fr; /* グリッドの列数を調整 */
+    grid-gap: 10px;
+}
+
+.bar {
+    background-color: #3498db;
+    color: white;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+  </style>
+    <div class="bar-chart" id="barChart">
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const data = [40, 80, 60, 90, 120, 30, 70, 50, 110, 85]; // データの配列
+
+    const barChart = document.getElementById("barChart");
+
+    // データを基に棒グラフを生成
+    data.forEach((value, index) => {
+        const bar = document.createElement("div");
+        bar.classList.add("bar");
+        bar.style.width = `${value}px`; // データに基づいて棒の幅を設定
+        bar.textContent = value;
+        barChart.appendChild(bar);
+    });
+});
+    </script>
+</body>
+</html>
